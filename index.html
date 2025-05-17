@@ -1,33 +1,26 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Luxury Product Maroc</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
   <style>
-    body {
+    html, body {
       margin: 0;
       font-family: 'Open Sans', sans-serif;
+      background-color: #fdfdfd;
       color: #333;
       text-align: center;
-      background: linear-gradient(-45deg, #ffe9f3, #fff4f8, #fde6f2, #fff);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
+      overflow-x: hidden;
     }
 
-    @keyframes gradientBG {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
-    }
-
+    /* INTRO ANIMATION */
     #intro {
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(255, 245, 250, 0.98);
+      background-color: #f8ebf2;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -36,16 +29,15 @@
     }
 
     #intro h1 {
-      font-size: 4em;
+      font-size: 3em;
       color: #d19c97;
       font-family: 'Playfair Display', serif;
-      animation: cinematicZoom 2s ease-out forwards;
-      text-shadow: 0 0 25px rgba(0,0,0,0.15);
+      animation: fadeInZoom 2s ease-out forwards;
     }
 
-    @keyframes cinematicZoom {
-      0% { opacity: 0; transform: scale(0.5) rotateX(45deg); }
-      100% { opacity: 1; transform: scale(1) rotateX(0); }
+    @keyframes fadeInZoom {
+      0% { opacity: 0; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1); }
     }
 
     .hidden {
@@ -53,53 +45,79 @@
       visibility: hidden;
     }
 
+    /* INFO BAR */
     .info-bar {
-      background-color: #d19c97;
+      background: linear-gradient(to right, #5e4b5c, #9e7f9b);
       color: white;
-      padding: 15px 0;
-      font-size: 1.1em;
-      font-weight: bold;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 10px 0;
+      font-size: 1em;
+      font-weight: 500;
+      letter-spacing: 1px;
     }
 
+    /* HEADER WITH PARTICLES */
     header {
-      padding: 30px 15px;
-      background: linear-gradient(145deg, #f8ebf2, #ffffff);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      position: relative;
+      overflow: hidden;
+      background: #1a1a1a;
+      color: white;
+      padding: 80px 20px 60px;
+    }
+
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0; left: 0;
+      z-index: 0;
+    }
+
+    .header-container {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
     }
 
     header img {
-      width: 150px;
-      border-radius: 10px;
-      animation: slideDown 1.5s ease-out forwards;
-      opacity: 0;
+      width: 120px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
     }
 
-    @keyframes slideDown {
-      0% { transform: translateY(-50px); opacity: 0; }
-      100% { transform: translateY(0); opacity: 1; }
-    }
-
-    h1 {
+    .header-text h1 {
       font-family: 'Playfair Display', serif;
-      margin: 10px 0;
-      font-size: 2em;
+      font-size: 2.5em;
+      margin: 0;
+      color: #fff;
     }
 
+    .header-text p {
+      margin: 5px 0 0;
+      font-size: 1.1em;
+      color: #ccc;
+    }
+
+    /* SECTIONS */
     section {
       padding: 40px 20px;
-      margin: 30px 20px;
+      margin: 20px;
       background: white;
       border-radius: 15px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      opacity: 0;
-      transform: translateY(50px) scale(0.95);
-      transition: all 0.6s ease;
+      transition: transform 0.3s ease;
     }
 
-    section.visible {
-      opacity: 1;
-      transform: translateY(0) scale(1);
+    section:hover {
+      transform: translateY(-5px);
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
     }
 
     a {
@@ -112,20 +130,22 @@
       color: #a6526a;
     }
 
+    /* 3D PRODUCT IMAGES */
     .product-img, .qr-img {
       width: 200px;
-      margin: 15px auto;
+      margin: 20px auto;
       display: block;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-      transition: transform 0.4s ease;
-      transform-style: preserve-3d;
+      border-radius: 15px;
+      box-shadow: 0 20px 30px rgba(0,0,0,0.2);
+      transform: perspective(800px) rotateX(5deg) rotateY(-5deg);
+      transition: transform 0.5s ease;
     }
 
-    .product-img:hover {
-      transform: perspective(800px) rotateY(8deg) rotateX(4deg) scale(1.05);
+    .product-img:hover, .qr-img:hover {
+      transform: perspective(800px) rotateX(0deg) rotateY(0deg) scale(1.05);
     }
 
+    /* BOUTONS CONTACT */
     .contact-btn {
       display: inline-block;
       margin: 10px;
@@ -159,33 +179,36 @@
       margin-top: 30px;
     }
   </style>
-
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
     // Masquer l'intro après 3 secondes
     window.addEventListener("load", () => {
       setTimeout(() => {
-        const intro = document.getElementById("intro");
-        intro.classList.add("hidden");
+        document.getElementById("intro").classList.add("hidden");
       }, 3000);
-    });
 
-    // Animation au scroll
-    window.addEventListener("scroll", () => {
-      document.querySelectorAll("section").forEach(section => {
-        const rect = section.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.85) {
-          section.classList.add("visible");
-        }
-      });
-    });
-
-    // Tilt 3D
-    window.addEventListener("DOMContentLoaded", () => {
-      VanillaTilt.init(document.querySelectorAll("section"), {
-        max: 12,
-        speed: 400,
-        glare: true,
-        "max-glare": 0.2,
+      // Init particles
+      particlesJS("particles-js", {
+        particles: {
+          number: { value: 60, density: { enable: true, value_area: 800 } },
+          color: { value: "#ffffff" },
+          shape: { type: "circle" },
+          opacity: { value: 0.2 },
+          size: { value: 3 },
+          move: { enable: true, speed: 1 }
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: { enable: true, mode: "grab" },
+            onclick: { enable: true, mode: "push" }
+          },
+          modes: {
+            grab: { distance: 140, line_linked: { opacity: 0.3 } },
+            push: { particles_nb: 4 }
+          }
+        },
+        retina_detect: true
       });
     });
   </script>
@@ -197,16 +220,24 @@
   <h1>Luxury Products Maroc</h1>
 </div>
 
+<!-- INFO BAR -->
 <div class="info-bar">
-  Livraison Partout au Maroc — Produits Authentiques de France
+  Livraison express partout au Maroc · Produits 100% Authentiques importés de France
 </div>
 
+<!-- HEADER -->
 <header>
-  <img src="IMG_7666.PNG" alt="Logo Luxury Product">
-  <h1>Luxury Product Maroc</h1>
-  <p>Produits de France livrés au Maroc</p>
+  <div id="particles-js"></div>
+  <div class="header-container">
+    <img src="IMG_7666.PNG" alt="Logo Luxury Product">
+    <div class="header-text">
+      <h1>Luxury Product Maroc</h1>
+      <p>Le meilleur du shopping français, livré chez vous.</p>
+    </div>
+  </div>
 </header>
 
+<!-- SECTIONS -->
 <section>
   <h2>Commande Shein</h2>
   <p>
@@ -252,6 +283,7 @@
   <img src="IMG_6427.jpg" alt="QR Code Instagram" class="qr-img">
 </section>
 
+<!-- FOOTER -->
 <div class="bottom-bar">
   ©️ 2025 Luxury Products Maroc.
 </div>
