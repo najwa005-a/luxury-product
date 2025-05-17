@@ -4,336 +4,329 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Luxury Product Maroc</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet">
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: 'Open Sans', sans-serif;
-      background: linear-gradient(135deg, #f9f5f3, #fffafa);
-      color: #5c4a47;
+      background-color: #fefefe;
+      color: #333;
       text-align: center;
       overflow-x: hidden;
     }
 
-    /* CINEMATIC INTRO */
-    #intro {
+    /* NAVIGATION FIXE */
+    nav {
       position: fixed;
       top: 0;
-      left: 0;
       width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, #f3e8e6, #fcefe8);
+      background-color: #fff6fa;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      z-index: 10000;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+    }
+
+    nav a {
+      margin: 0 15px;
+      color: #b46885;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1em;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #8e4d67;
+    }
+
+    /* INTRO */
+    #intro {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: #fdf1f7;
       display: flex;
       align-items: center;
       justify-content: center;
       z-index: 9999;
       transition: opacity 1s ease;
-      font-family: 'Playfair Display', serif;
-      color: #b57e72;
-      font-size: 3.2em;
-      letter-spacing: 0.1em;
-      user-select: none;
-      text-shadow: 0 0 8px #d8a8a2;
     }
 
-    #intro.hidden {
+    #intro h1 {
+      font-size: 3em;
+      color: #d08fa6;
+      font-family: 'Playfair Display', serif;
+      animation: fadeInZoom 2s ease-out forwards;
+    }
+
+    @keyframes fadeInZoom {
+      0% { opacity: 0; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    .hidden {
       opacity: 0;
       visibility: hidden;
     }
 
     .info-bar {
-      background-color: #b57e72;
-      color: white;
-      padding: 15px 0;
-      font-size: 1.1em;
-      font-weight: 700;
-      box-shadow: 0 4px 15px rgba(181, 126, 114, 0.4);
-      letter-spacing: 0.04em;
+      background: #ecd9df;
+      color: #5a4a50;
+      padding: 50px 0 10px;
+      font-size: 1em;
+      font-weight: 500;
     }
 
     header {
-      padding: 25px 15px;
-      background: #fff7f5;
-      box-shadow: 0 8px 24px rgba(181, 126, 114, 0.15);
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(to right, #fff0f5, #fefefe);
+      padding: 80px 20px 60px;
+      color: #444;
+    }
+
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0; left: 0;
+      z-index: 0;
+    }
+
+    .header-container {
+      position: relative;
+      z-index: 1;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 25px;
       flex-wrap: wrap;
+      gap: 20px;
     }
 
     header img {
-      width: 140px;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(181, 126, 114, 0.3);
-      transition: transform 0.3s ease;
+      width: 120px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
-    header img:hover {
-      transform: scale(1.05) rotate(3deg);
-    }
-
-    header h1 {
+    .header-text h1 {
       font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: 2.6em;
-      color: #8f5f57;
+      font-size: 2.3em;
       margin: 0;
-      letter-spacing: 0.05em;
-      user-select: none;
+      color: #b76886;
     }
 
-    header p {
+    .header-text p {
+      margin: 5px 0 0;
       font-size: 1.1em;
-      color: #a57e77;
-      font-weight: 500;
-      margin: 0;
-      letter-spacing: 0.04em;
+      color: #777;
     }
 
     section {
-      padding: 45px 25px;
-      margin: 25px 35px;
-      background: white;
-      border-radius: 20px;
-      box-shadow: 0 14px 40px rgba(181, 126, 114, 0.12);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding: 40px 20px;
+      margin: 20px auto;
       max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
-      cursor: default;
-      user-select: none;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
     }
 
     section:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 50px rgba(181, 126, 114, 0.25);
+      transform: translateY(-5px);
     }
 
-    section h2 {
+    h2 {
       font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: 2em;
-      margin-bottom: 15px;
-      color: #8f5f57;
-      user-select: text;
-    }
-
-    section p {
-      font-size: 1.05em;
-      line-height: 1.5;
-      color: #6b4c47;
-      margin-bottom: 20px;
-      user-select: text;
+      color: #aa6c87;
     }
 
     a {
-      color: #a76e67;
+      color: #d08fa6;
       text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s ease;
+      transition: color 0.3s;
     }
 
     a:hover {
-      color: #6d3f38;
-      text-decoration: underline;
+      color: #b06a82;
     }
 
-    .product-img,
-    .qr-img {
-      width: 220px;
-      margin: 18px auto;
+    .product-img, .qr-img {
+      width: 200px;
+      margin: 20px auto;
       display: block;
-      border-radius: 18px;
-      box-shadow: 0 12px 25px rgba(181, 126, 114, 0.25);
-      filter: drop-shadow(2px 4px 6px rgba(150, 100, 90, 0.2));
-      transition: transform 0.3s ease;
-      cursor: pointer;
+      border-radius: 15px;
+      box-shadow: 0 20px 30px rgba(0,0,0,0.15);
+      transform: perspective(800px) rotateX(5deg) rotateY(-5deg);
+      transition: transform 0.5s ease;
     }
 
-    .product-img:hover,
-    .qr-img:hover {
-      transform: translateY(-8px) scale(1.05);
-      filter: drop-shadow(4px 6px 8px rgba(150, 100, 90, 0.4));
+    .product-img:hover, .qr-img:hover {
+      transform: perspective(800px) rotateX(0deg) rotateY(0deg) scale(1.05);
     }
 
     .contact-btn {
       display: inline-block;
-      margin: 12px 15px;
-      padding: 14px 30px;
-      background: linear-gradient(135deg, #b57e72, #e9c5bb);
-      color: #4b2f2a;
-      font-weight: 700;
-      font-size: 1.1em;
-      border-radius: 35px;
-      box-shadow: 0 12px 30px rgba(181, 126, 114, 0.3);
-      transition: transform 0.25s ease, background 0.4s ease;
-      user-select: none;
-      cursor: pointer;
-      text-decoration: none;
-      letter-spacing: 0.04em;
+      margin: 10px;
+      padding: 12px 25px;
+      background: linear-gradient(to right, #e8a3b8, #f6cbd8);
+      color: white;
+      font-weight: bold;
+      border-radius: 25px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transition: transform 0.2s ease, background 0.3s ease;
     }
 
     .contact-btn:hover {
-      background: linear-gradient(135deg, #9a6c64, #cc9c91);
-      transform: translateY(-6px);
-      color: #3a251f;
-      box-shadow: 0 18px 36px rgba(154, 108, 100, 0.5);
+      transform: translateY(-3px);
+      background: linear-gradient(to right, #d68ca2, #f2bfcf);
     }
 
     video {
       width: 90%;
-      max-width: 360px;
-      border-radius: 22px;
-      box-shadow: 0 16px 40px rgba(181, 126, 114, 0.15);
-      cursor: pointer;
-      user-select: none;
+      max-width: 300px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
     }
 
     .bottom-bar {
-      background-color: #b57e72;
-      color: white;
-      padding: 14px 0;
-      text-align: center;
-      font-size: 1em;
-      letter-spacing: 0.03em;
-      user-select: none;
-      box-shadow: 0 -6px 12px rgba(181, 126, 114, 0.4);
+      background-color: #f4e5eb;
+      color: #555;
+      padding: 12px 0;
+      font-size: 0.95em;
+      margin-top: 30px;
     }
   </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
-    // Masquer l'intro après 3 secondes
-    window.addEventListener('load', () => {
+    window.addEventListener("load", () => {
+      // Cacher l'intro après 3 sec
       setTimeout(() => {
-        const intro = document.getElementById('intro');
-        intro.classList.add('hidden');
+        document.getElementById("intro").classList.add("hidden");
       }, 3000);
+
+      // Particules
+      particlesJS("particles-js", {
+        particles: {
+          number: { value: 50, density: { enable: true, value_area: 800 } },
+          color: { value: "#d8a2b4" },
+          shape: { type: "circle" },
+          opacity: { value: 0.25 },
+          size: { value: 3 },
+          move: { enable: true, speed: 0.8 }
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: { enable: true, mode: "grab" },
+            onclick: { enable: true, mode: "push" }
+          },
+          modes: {
+            grab: { distance: 140, line_linked: { opacity: 0.3 } },
+            push: { particles_nb: 4 }
+          }
+        },
+        retina_detect: true
+      });
+
+      // Audio doux
+      const audio = new Audio("intro.mp3");
+      audio.volume = 0.3;
+      audio.play().catch(e => {
+        console.log("Audio bloqué jusqu'à interaction utilisateur.");
+      });
     });
   </script>
 </head>
 <body>
-  <!-- INTRO -->
-  <div id="intro">Luxury Products Maroc</div>
 
-  <div class="info-bar">
-    Livraison Partout au Maroc — Produits Authentiques de France
+<!-- NAVIGATION -->
+<nav>
+  <a href="#shein">Shein</a>
+  <a href="#primark">Primark</a>
+  <a href="#rituals">Rituals</a>
+  <a href="#sephora">Sephora</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- INTRO -->
+<div id="intro">
+  <h1>Luxury Products Maroc</h1>
+</div>
+
+<!-- INFO BAR -->
+<div class="info-bar">
+  Livraison express au Maroc · Produits importés de France
+</div>
+
+<!-- HEADER -->
+<header>
+  <div id="particles-js"></div>
+  <div class="header-container">
+    <img src="IMG_7666.PNG" alt="Logo Luxury Product">
+    <div class="header-text">
+      <h1>Luxury Product Maroc</h1>
+      <p>Le luxe français livré chez vous</p>
+    </div>
   </div>
+</header>
 
-  <header>
-    <!-- Remplace l'URL ci-dessous par le chemin ou URL de ton logo -->
-    <img src="IMG_7666.PNG" alt="Logo Luxury Product" />
-    <h1>Luxury Product Maroc</h1>
-    <p>Produits de France livrés au Maroc</p>
-  </header>
+<!-- SECTIONS -->
+<section id="shein">
+  <h2>Commande Shein</h2>
+  <p>
+    +15% pour Meknès, +20% hors Meknès<br>
+    Livraison : 20-25 jours<br>
+    Paiement : 50% à la commande, 50% à la livraison<br>
+    <a href="https://www.shein.com/" target="_blank">Accéder à Shein</a>
+  </p>
+</section>
 
-  <section>
-    <h2>Commande Shein</h2>
-    <p>
-      +15% pour Meknès, +20% hors Meknès<br />
-      Livraison : 20-25 jours<br />
-      Paiement : 50% à la commande, 50% à la livraison<br />
-      <a href="https://www.shein.com/" target="_blank" rel="noopener noreferrer"
-        >Accéder à Shein</a
-      >
-    </p>
-  </section>
+<section id="primark">
+  <h2>Primark</h2>
+  <img src="IMG_6434.JPG" class="product-img" alt="Primark">
+  <img src="IMG_6430.JPG" class="product-img" alt="Primark">
+</section>
 
-  <section>
-    <h2>Primark</h2>
-    <!-- Remplace ces images par tes photos Primark -->
-    <img
-      src="IMG_6434.JPG"
-      class="product-img"
-      alt="Primark"
-      loading="lazy"
-    />
-    <img
-      src="IMG_6430.JPG"
-      class="product-img"
-      alt="Primark"
-      loading="lazy"
-    />
-  </section>
+<section id="rituals">
+  <h2>Rituals</h2>
+  <img src="IMG_6617.JPG" class="product-img" alt="Rituals">
+  <img src="IMG_6616.JPG" class="product-img" alt="Rituals">
+  <p>Disponibles en toutes tailles et toutes couleurs.</p>
+</section>
 
-  <section>
-    <h2>Rituals</h2>
-    <!-- Remplace ces images par tes photos Rituals -->
-    <img
-      src="IMG_6617.JPG"
-      class="product-img"
-      alt="Rituals"
-      loading="lazy"
-    />
-    <img
-      src="IMG_6616.JPG"
-      class="product-img"
-      alt="Rituals"
-      loading="lazy"
-    />
-    <p>Disponibles en toutes tailles et toutes couleurs.</p>
-  </section>
+<section id="sephora">
+  <h2>Sephora</h2>
+  <img src="IMG_6433.JPG" class="product-img" alt="Sephora">
+  <img src="IMG_6431.JPG" class="product-img" alt="Sephora">
+</section>
 
-  <section>
-    <h2>Sephora</h2>
-    <!-- Remplace ces images par tes photos Sephora -->
-    <img
-      src="IMG_6433.JPG"
-      class="product-img"
-      alt="Sephora"
-      loading="lazy"
-    />
-    <img
-      src="IMG_6431.JPG"
-      class="product-img"
-      alt="Sephora"
-      loading="lazy"
-    />
-  </section>
+<section>
+  <h2>Merci pour votre confiance</h2>
+  <video controls>
+    <source src="vid (1).MOV" type="video/mp4">
+    Votre navigateur ne supporte pas la vidéo.
+  </video>
+</section>
 
-  <section>
-    <h2>Merci pour votre confiance</h2>
-    <video controls preload="metadata">
-      <!-- Remplace cette vidéo par la tienne -->
-      <source src="vid (1).MOV" type="video/mp4" />
-      Votre navigateur ne supporte pas la vidéo.
-    </video>
-  </section>
+<section id="contact">
+  <h2>Contact</h2>
+  <a class="contact-btn" href="https://wa.me/212778231455" target="_blank">WhatsApp</a>
+  <a class="contact-btn" href="https://www.tiktok.com/@luxury_mar?_t=ZM-8vc1dEvvf0P&_r=1" target="_blank">TikTok</a>
+  <a class="contact-btn" href="https://www.instagram.com/luxury_product_maroc/?utm_source=qr" target="_blank">Instagram</a>
+  <img src="IMG_6427.jpg" alt="QR Code Instagram" class="qr-img">
+</section>
 
-  <section>
-    <h2>Contact</h2>
-    <a
-      class="contact-btn"
-      href="https://wa.me/212778231455"
-      target="_blank"
-      rel="noopener noreferrer"
-      >WhatsApp</a
-    >
-    <a
-      class="contact-btn"
-      href="https://www.tiktok.com/@luxury_mar?_t=ZM-8vc1dEvvf0P&_r=1"
-      target="_blank"
-      rel="noopener noreferrer"
-      >TikTok</a
-    >
-    <a
-      class="contact-btn"
-      href="https://www.instagram.com/luxury_product_maroc/?utm_source=qr"
-      target="_blank"
-      rel="noopener noreferrer"
-      >Instagram</a
-    >
-    <!-- Remplace ce QR code par le tien -->
-    <img
-      src="IMG_6427.jpg"
-      alt="QR Code Instagram"
-      class="qr-img"
-      loading="lazy"
-    />
-  </section>
+<div class="bottom-bar">
+  ©️ 2025 Luxury Products Maroc.
+</div>
 
-  <div class="bottom-bar">©️ 2025 Luxury Products Maroc.</div>
 </body>
 </html>
