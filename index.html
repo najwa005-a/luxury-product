@@ -4,329 +4,401 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Luxury Product Maroc</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet" />
   <style>
-    html {
-      scroll-behavior: smooth;
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
     }
-
-    body {
-      margin: 0;
+    body, html {
+      margin: 0; padding: 0;
+      height: 100%;
       font-family: 'Open Sans', sans-serif;
-      background-color: #fefefe;
-      color: #333;
-      text-align: center;
+      background: #faf9f8;
+      color: #4a4a4a;
       overflow-x: hidden;
     }
-
-    /* NAVIGATION FIXE */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background-color: #fff6fa;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-      z-index: 10000;
-      display: flex;
-      justify-content: center;
-      padding: 10px 0;
-    }
-
-    nav a {
-      margin: 0 15px;
-      color: #b46885;
-      font-weight: bold;
+    a {
+      color: #bb8f7a;
       text-decoration: none;
-      font-size: 1em;
       transition: color 0.3s ease;
     }
-
-    nav a:hover {
-      color: #8e4d67;
+    a:hover {
+      color: #a56d57;
     }
 
-    /* INTRO */
-    #intro {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: #fdf1f7;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      transition: opacity 1s ease;
-    }
-
-    #intro h1 {
-      font-size: 3em;
-      color: #d08fa6;
-      font-family: 'Playfair Display', serif;
-      animation: fadeInZoom 2s ease-out forwards;
-    }
-
-    @keyframes fadeInZoom {
-      0% { opacity: 0; transform: scale(0.8); }
-      100% { opacity: 1; transform: scale(1); }
-    }
-
-    .hidden {
-      opacity: 0;
-      visibility: hidden;
-    }
-
-    .info-bar {
-      background: #ecd9df;
-      color: #5a4a50;
-      padding: 50px 0 10px;
-      font-size: 1em;
-      font-weight: 500;
-    }
-
+    /* Glassmorphism fixed header */
     header {
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(to right, #fff0f5, #fefefe);
-      padding: 80px 20px 60px;
-      color: #444;
-    }
-
-    #particles-js {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0; left: 0;
-      z-index: 0;
-    }
-
-    .header-container {
-      position: relative;
-      z-index: 1;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 70px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
+      padding: 0 30px;
+      background: rgba(255 255 255 / 0.45);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 32px rgb(187 143 122 / 0.12);
+      z-index: 999;
+      border-bottom: 1px solid rgba(187 143 122 / 0.15);
     }
-
     header img {
-      width: 120px;
+      height: 50px;
       border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .header-text h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.3em;
-      margin: 0;
-      color: #b76886;
-    }
-
-    .header-text p {
-      margin: 5px 0 0;
-      font-size: 1.1em;
-      color: #777;
-    }
-
-    section {
-      padding: 40px 20px;
-      margin: 20px auto;
-      max-width: 900px;
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+      margin-right: 20px;
+      filter: drop-shadow(0 0 1px rgba(171, 111, 84, 0.7));
+      cursor: pointer;
       transition: transform 0.3s ease;
     }
+    header img:hover {
+      transform: scale(1.1);
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: #8b6b58;
+      user-select: none;
+    }
 
+    /* Intro animation overlay */
+    #intro {
+      position: fixed;
+      inset: 0;
+      background: #fff7f3;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+      animation: introFadeOut 3.5s forwards;
+    }
+    #intro img {
+      width: 150px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      animation: logoPulse 3s infinite alternate ease-in-out;
+    }
+    #intro h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.2rem;
+      color: #a36c49;
+      letter-spacing: 3px;
+      user-select: none;
+      animation: titleFadeIn 2.5s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes introFadeOut {
+      0%, 80% { opacity: 1; }
+      100% { opacity: 0; visibility: hidden; }
+    }
+    @keyframes logoPulse {
+      0% { filter: drop-shadow(0 0 3px #bc977b); }
+      100% { filter: drop-shadow(0 0 10px #bc977b); }
+    }
+    @keyframes titleFadeIn {
+      to { opacity: 1; }
+    }
+
+    /* Main container with padding to avoid header overlap */
+    main {
+      padding-top: 90px;
+      max-width: 1100px;
+      margin: 0 auto 50px auto;
+    }
+
+    /* Animated 3D background - subtle floating circles */
+    #animated-bg {
+      position: fixed;
+      top: 70px; left: 0; right: 0; height: 200px;
+      pointer-events: none;
+      z-index: 0;
+      background: linear-gradient(135deg, #f9f6f4, #fcf7f2);
+      overflow: visible;
+    }
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, rgba(187,143,122,0.15), transparent);
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+    }
+    .circle1 {
+      width: 160px; height: 160px;
+      top: 20px; left: 10%;
+      animation-name: floatUpDown1;
+      animation-duration: 8s;
+    }
+    .circle2 {
+      width: 100px; height: 100px;
+      top: 80px; left: 50%;
+      animation-name: floatUpDown2;
+      animation-duration: 7s;
+    }
+    .circle3 {
+      width: 140px; height: 140px;
+      top: 40px; left: 75%;
+      animation-name: floatUpDown3;
+      animation-duration: 9s;
+    }
+
+    @keyframes floatUpDown1 {
+      0%, 100% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(-15px) translateX(5px); }
+    }
+    @keyframes floatUpDown2 {
+      0%, 100% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(-10px) translateX(-8px); }
+    }
+    @keyframes floatUpDown3 {
+      0%, 100% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(-12px) translateX(10px); }
+    }
+
+    /* Sections styling */
+    section {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgb(187 143 122 / 0.15);
+      padding: 35px 30px;
+      margin: 30px 0;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      position: relative;
+      z-index: 1;
+    }
     section:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 50px rgb(187 143 122 / 0.25);
+    }
+    section h2 {
+      font-family: 'Playfair Display', serif;
+      color: #8b6b58;
+      margin-bottom: 18px;
+      font-size: 2rem;
+    }
+    section p {
+      line-height: 1.5;
+      font-size: 1rem;
+      color: #665544;
+      margin-bottom: 18px;
+    }
+
+    /* 3D card styling for images */
+    .card3d {
+      width: 220px;
+      height: 280px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgb(187 143 122 / 0.25);
+      margin: 15px;
+      display: inline-block;
+      perspective: 1200px;
+      cursor: grab;
+      transition: box-shadow 0.3s ease;
+      user-select: none;
+      position: relative;
+    }
+    .card3d-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      transition: transform 0.3s ease;
+      transform-style: preserve-3d;
+      will-change: transform;
+      box-shadow: 0 14px 24px rgb(187 143 122 / 0.35);
+      overflow: hidden;
+      background: #fff;
+      position: relative;
+    }
+    .card3d img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+      backface-visibility: hidden;
+    }
+    .card3d:hover .card3d-inner {
+      box-shadow: 0 40px 60px rgb(187 143 122 / 0.5);
+    }
+
+    /* Click "pop" animation */
+    @keyframes popExplode {
+      0% {
+        transform: scale(1) rotateX(0deg) rotateY(0deg);
+        box-shadow: 0 14px 24px rgb(187 143 122 / 0.35);
+      }
+      50% {
+        transform: scale(1.15) rotateX(15deg) rotateY(15deg);
+        box-shadow: 0 60px 90px rgb(187 143 122 / 0.7);
+      }
+      100% {
+        transform: scale(1) rotateX(0deg) rotateY(0deg);
+        box-shadow: 0 14px 24px rgb(187 143 122 / 0.35);
+      }
+    }
+
+    /* Contact buttons */
+    .contact-btn {
+      background: linear-gradient(135deg, #c8a887, #e4c3a0);
+      border-radius: 30px;
+      padding: 14px 30px;
+      color: #5a3d22;
+      font-weight: 700;
+      font-size: 1rem;
+      margin: 10px 15px 10px 0;
+      display: inline-block;
+      box-shadow: 0 6px 20px rgb(187 143 122 / 0.3);
+      transition: background 0.3s ease, transform 0.3s ease;
+      user-select: none;
+      text-decoration: none;
+    }
+    .contact-btn:hover {
+      background: linear-gradient(135deg, #a97f5b, #c8a887);
       transform: translateY(-5px);
     }
 
-    h2 {
-      font-family: 'Playfair Display', serif;
-      color: #aa6c87;
-    }
-
-    a {
-      color: #d08fa6;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    a:hover {
-      color: #b06a82;
-    }
-
-    .product-img, .qr-img {
-      width: 200px;
-      margin: 20px auto;
-      display: block;
-      border-radius: 15px;
-      box-shadow: 0 20px 30px rgba(0,0,0,0.15);
-      transform: perspective(800px) rotateX(5deg) rotateY(-5deg);
-      transition: transform 0.5s ease;
-    }
-
-    .product-img:hover, .qr-img:hover {
-      transform: perspective(800px) rotateX(0deg) rotateY(0deg) scale(1.05);
-    }
-
-    .contact-btn {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 25px;
-      background: linear-gradient(to right, #e8a3b8, #f6cbd8);
-      color: white;
-      font-weight: bold;
-      border-radius: 25px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      transition: transform 0.2s ease, background 0.3s ease;
-    }
-
-    .contact-btn:hover {
-      transform: translateY(-3px);
-      background: linear-gradient(to right, #d68ca2, #f2bfcf);
-    }
-
+    /* Video styling */
     video {
-      width: 90%;
-      max-width: 300px;
-      border-radius: 15px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 320px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgb(187 143 122 / 0.3);
+      display: block;
+      margin: 0 auto;
     }
 
-    .bottom-bar {
-      background-color: #f4e5eb;
-      color: #555;
-      padding: 12px 0;
-      font-size: 0.95em;
-      margin-top: 30px;
+    /* QR code */
+    .qr-img {
+      margin-top: 25px;
+      width: 150px;
+      border-radius: 16px;
+      box-shadow: 0 10px 20px rgb(187 143 122 / 0.3);
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #8b6b58;
+      margin-top: 50px;
+      font-size: 0.9rem;
+      user-select: none;
+      padding-bottom: 30px;
+    }
+
+    /* Responsive */
+    @media (max-width: 720px) {
+      .card3d {
+        width: 160px;
+        height: 210px;
+      }
+      section {
+        padding: 25px 15px;
+      }
     }
   </style>
-
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script>
-    window.addEventListener("load", () => {
-      // Cacher l'intro après 3 sec
-      setTimeout(() => {
-        document.getElementById("intro").classList.add("hidden");
-      }, 3000);
-
-      // Particules
-      particlesJS("particles-js", {
-        particles: {
-          number: { value: 50, density: { enable: true, value_area: 800 } },
-          color: { value: "#d8a2b4" },
-          shape: { type: "circle" },
-          opacity: { value: 0.25 },
-          size: { value: 3 },
-          move: { enable: true, speed: 0.8 }
-        },
-        interactivity: {
-          detect_on: "canvas",
-          events: {
-            onhover: { enable: true, mode: "grab" },
-            onclick: { enable: true, mode: "push" }
-          },
-          modes: {
-            grab: { distance: 140, line_linked: { opacity: 0.3 } },
-            push: { particles_nb: 4 }
-          }
-        },
-        retina_detect: true
-      });
-
-      // Audio doux
-      const audio = new Audio("intro.mp3");
-      audio.volume = 0.3;
-      audio.play().catch(e => {
-        console.log("Audio bloqué jusqu'à interaction utilisateur.");
-      });
-    });
-  </script>
 </head>
 <body>
-
-<!-- NAVIGATION -->
-<nav>
-  <a href="#shein">Shein</a>
-  <a href="#primark">Primark</a>
-  <a href="#rituals">Rituals</a>
-  <a href="#sephora">Sephora</a>
-  <a href="#contact">Contact</a>
-</nav>
-
-<!-- INTRO -->
-<div id="intro">
-  <h1>Luxury Products Maroc</h1>
-</div>
-
-<!-- INFO BAR -->
-<div class="info-bar">
-  Livraison express au Maroc · Produits importés de France
-</div>
-
-<!-- HEADER -->
-<header>
-  <div id="particles-js"></div>
-  <div class="header-container">
-    <img src="IMG_7666.PNG" alt="Logo Luxury Product">
-    <div class="header-text">
-      <h1>Luxury Product Maroc</h1>
-      <p>Le luxe français livré chez vous</p>
-    </div>
+  <div id="intro">
+    <img src="https://luxury-product-mar.vercel.app/logo.png" alt="Logo Luxury Product Maroc" />
+    <h1>Luxury Product Maroc</h1>
   </div>
-</header>
 
-<!-- SECTIONS -->
-<section id="shein">
-  <h2>Commande Shein</h2>
-  <p>
-    +15% pour Meknès, +20% hors Meknès<br>
-    Livraison : 20-25 jours<br>
-    Paiement : 50% à la commande, 50% à la livraison<br>
-    <a href="https://www.shein.com/" target="_blank">Accéder à Shein</a>
-  </p>
-</section>
+  <header>
+    <img src="https://luxury-product-mar.vercel.app/logo.png" alt="Logo Luxury Product Maroc" />
+    <h1>Luxury Product Maroc</h1>
+  </header>
 
-<section id="primark">
-  <h2>Primark</h2>
-  <img src="IMG_6434.JPG" class="product-img" alt="Primark">
-  <img src="IMG_6430.JPG" class="product-img" alt="Primark">
-</section>
+  <div id="animated-bg">
+    <div class="circle circle1"></div>
+    <div class="circle circle2"></div>
+    <div class="circle circle3"></div>
+  </div>
 
-<section id="rituals">
-  <h2>Rituals</h2>
-  <img src="IMG_6617.JPG" class="product-img" alt="Rituals">
-  <img src="IMG_6616.JPG" class="product-img" alt="Rituals">
-  <p>Disponibles en toutes tailles et toutes couleurs.</p>
-</section>
+  <main>
+    <section id="shein">
+      <h2>Shein - Mode & Accessoires</h2>
+      <p>Commandez vos vêtements tendance de France avec Luxury Product Maroc.</p>
+      <p><strong>Procédure :</strong> Commandez, payez 50% à l'avance, reste à la livraison.</p>
+      <p><strong>Majoration :</strong> +15% Meknès, +20% hors Meknès.</p>
+      <p><strong>Livraison :</strong> 20-25 jours en moyenne.</p>
 
-<section id="sephora">
-  <h2>Sephora</h2>
-  <img src="IMG_6433.JPG" class="product-img" alt="Sephora">
-  <img src="IMG_6431.JPG" class="product-img" alt="Sephora">
-</section>
+      <div class="card3d" tabindex="0">
+        <div class="card3d-inner">
+          <img src="https://luxury-product-mar.vercel.app/images/shein1.jpg" alt="Shein Produit 1" />
+        </div>
+      </div>
+      <div class="card3d" tabindex="0">
+        <div class="card3d-inner">
+          <img src="https://luxury-product-mar.vercel.app/images/shein2.jpg" alt="Shein Produit 2" />
+        </div>
+      </div>
+      <div class="card3d" tabindex="0">
+        <div class="card3d-inner">
+          <img src="https://luxury-product-mar.vercel.app/images/shein3.jpg" alt="Shein Produit 3" />
+        </div>
+      </div>
+    </section>
 
-<section>
-  <h2>Merci pour votre confiance</h2>
-  <video controls>
-    <source src="vid (1).MOV" type="video/mp4">
-    Votre navigateur ne supporte pas la vidéo.
-  </video>
-</section>
+    <section id="rituals">
+      <h2>Rituals - Bien-être & Soins</h2>
+      <p>Découvrez les produits exclusifs Rituals, livrés avec soin.</p>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <a class="contact-btn" href="https://wa.me/212778231455" target="_blank">WhatsApp</a>
-  <a class="contact-btn" href="https://www.tiktok.com/@luxury_mar?_t=ZM-8vc1dEvvf0P&_r=1" target="_blank">TikTok</a>
-  <a class="contact-btn" href="https://www.instagram.com/luxury_product_maroc/?utm_source=qr" target="_blank">Instagram</a>
-  <img src="IMG_6427.jpg" alt="QR Code Instagram" class="qr-img">
-</section>
+      <div class="card3d" tabindex="0">
+        <div class="card3d-inner">
+          <img src="https://luxury-product-mar.vercel.app/images/rituals1.jpg" alt="Rituals Produit 1" />
+        </div>
+      </div>
+      <div class="card3d" tabindex="0">
+        <div class="card3d-inner">
+          <img src="https://luxury-product-mar.vercel.app/images/rituals2.jpg" alt="Rituals Produit 2" />
+        </div>
+      </div>
+      <div class="card3d" tabindex="0">
+        <div class="card3d-inner">
+          <img src="https://luxury-product-mar.vercel.app/images/rituals3.jpg" alt="Rituals Produit 3" />
+        </div>
+      </div>
+    </section>
 
-<div class="bottom-bar">
-  ©️ 2025 Luxury Products Maroc.
-</div>
+    <section id="contact">
+      <h2>Contactez-nous</h2>
+      <a href="https://wa.me/212778231455" target="_blank" class="contact-btn" rel="noopener">WhatsApp</a>
+      <a href="https://www.instagram.com/luxury_product_maroc/?utm_source=qr" target="_blank" class="contact-btn" rel="noopener">Instagram</a>
+      <img class="qr-img" src="https://luxury-product-mar.vercel.app/qr-instagram.png" alt="QR Code Instagram Luxury Product Maroc" />
+      <video autoplay loop muted playsinline>
+        <source src="https://luxury-product-mar.vercel.app/intro-video.mp4" type="video/mp4" />
+        Votre navigateur ne supporte pas la vidéo.
+      </video>
+    </section>
+  </main>
 
-</body>
-</html>
+  <footer>
+    &copy; 2025 Luxury Product Maroc — Tous droits réservés
+  </footer>
+
+  <audio id="popSound" src="https://actions.google.com/sounds/v1/cartoon/pop.ogg" preload="auto"></audio>
+
+  <script>
+    // Remove intro after animation
+    window.addEventListener('load', () => {
+      const intro = document.getElementById('intro');
+      setTimeout(() => intro.style.display = 'none', 3500);
+    });
+
+    // 3D card tilt effect + click pop animation
+    document.querySelectorAll('.card3d').forEach(card => {
+      const inner = card.querySelector('.card3d-inner');
+      const popSound = document.getElementById('popSound');
+
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const cx = rect.width / 2;
+        const cy = rect.height / 2;
+        const dx = (x - cx) / cx;
+        const dy = (y - cy) / cy;
+        const max
