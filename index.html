@@ -1,215 +1,290 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Luxury Product Maroc</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Groupe Auto École Wallili - Meknès</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
-    body {
-      margin: 0;
-      font-family: 'Open Sans', sans-serif;
-      background-color: #fdfdfd;
-      color: #333;
-      text-align: center;
-    }
-
-    /* CINEMATIC INTRO */
+    /* Animation d’intro simplifiée */
     #intro {
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: #f8ebf2;
+      inset: 0;
+      background: #b30000;
+      color: white;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
+      align-items: center;
+      font-size: 3rem;
       z-index: 9999;
-      transition: opacity 1s ease;
+      animation: fadeInOut 5s forwards;
     }
 
-    #intro h1 {
-      font-size: 3em;
-      color: #d19c97;
-      font-family: 'Playfair Display', serif;
-      animation: fadeInZoom 2s ease-out forwards;
+    #intro div + div {
+      font-size: 1.5rem;
+      margin-top: 10px;
     }
 
-    @keyframes fadeInZoom {
-      0% { opacity: 0; transform: scale(0.8); }
-      100% { opacity: 1; transform: scale(1); }
+    @keyframes fadeInOut {
+      0%   { opacity: 0; }
+      20%  { opacity: 1; }
+      80%  { opacity: 1; }
+      100% { opacity: 0; visibility: hidden; }
     }
 
-    .hidden {
-      opacity: 0;
-      visibility: hidden;
-    }
-
-    .info-bar {
-      background-color: #d19c97;
-      color: white;
-      padding: 15px 0;
-      font-size: 1.1em;
-      font-weight: bold;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    header {
-      padding: 30px 15px;
-      background: linear-gradient(145deg, #f8ebf2, #ffffff);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-    }
-
-    header img {
-      width: 150px;
-      border-radius: 10px;
-    }
-
-    h1 {
-      font-family: 'Playfair Display', serif;
-      margin: 10px 0;
-      font-size: 2em;
-    }
-
-    section {
-      padding: 40px 20px;
-      margin: 20px;
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease;
-    }
-
-    section:hover {
-      transform: translateY(-5px);
-    }
-
-    a {
-      color: #da8da4;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    a:hover {
-      color: #a6526a;
-    }
-
-    .product-img, .qr-img {
-      width: 200px;
-      margin: 15px auto;
-      display: block;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .contact-btn {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 25px;
-      background: linear-gradient(to right, #d19c97, #e9b8b0);
-      color: white;
-      font-weight: bold;
-      border-radius: 25px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      transition: transform 0.2s ease, background 0.3s ease;
-    }
-
-    .contact-btn:hover {
-      transform: translateY(-3px);
-      background: linear-gradient(to right, #c18782, #dca39d);
-    }
-
-    video {
-      width: 90%;
-      max-width: 300px;
-      border-radius: 15px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    }
-
-    .bottom-bar {
-      background-color: #333;
-      color: white;
-      padding: 12px 0;
+    /* Styles personnalisés */
+    .hero-section {
+      background-color: #f8f9ff !important;
+      padding: 80px 0;
       text-align: center;
-      font-size: 0.95em;
-      margin-top: 30px;
+    }
+
+    .footer {
+      background-color: #212529;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .logo-img, .card-img-top {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    .logo-img {
+      max-width: 200px;
+      margin-bottom: 20px;
+    }
+
+    .article-section {
+      padding: 50px 0;
+    }
+
+    .article {
+      margin-bottom: 30px;
+    }
+
+    .dotted-line {
+      border-top: 4px dotted #ff0000;
+      width: 50%;
+      margin: auto;
+    }
+
+    .text-primary {
+      color: #ff0000 !important;
+    }
+
+    .text-warning {
+      color: #ff4500 !important;
+    }
+
+    .bg-light {
+      background-color: #ffffff !important;
+    }
+
+    .bg-white {
+      background-color: #f8f9ff !important;
+    }
+
+    .navbar-dark .navbar-brand, .navbar-dark .navbar-toggler {
+      color: #ffffff;
+    }
+
+    .social-btn {
+      display: inline-block;
+      margin: 5px 10px;
+      text-decoration: none;
+      color: #fff;
+      background-color: #ff0000;
+      padding: 8px 15px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .social-btn:hover {
+      background-color: #cc0000;
+    }
+
+    /* Responsive iframe */
+    iframe {
+      width: 100%;
+      height: 450px;
+      border: none;
     }
   </style>
-
-  <script>
-    // Masquer l'intro après 3 secondes
-    window.addEventListener("load", () => {
-      setTimeout(() => {
-        const intro = document.getElementById("intro");
-        intro.classList.add("hidden");
-      }, 3000);
-    });
-  </script>
 </head>
 <body>
 
-<!-- INTRO -->
+<!-- INTRO CINÉMATIQUE -->
 <div id="intro">
-  <h1>Luxury Products Maroc</h1>
+  <div>Groupe Auto École Wallili</div>
+  <div>Meknès - Sidi Kacem</div>
 </div>
 
-<div class="info-bar">
-  Livraison Partout au Maroc — Produits Authentiques de France
-</div>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+  <div class="container">
+    <a class="navbar-brand" href="#">Groupe Auto École Wallili</a>
+    <span class="text-white">Meknès, Maroc | Tél : +212 620091202</span>
+  </div>
+</nav>
 
-<header>
-  <img src="IMG_7666.PNG" alt="Logo Luxury Product">
-  <h1>Luxury Product Maroc</h1>
-  <p>Produits de France livrés au Maroc</p>
-</header>
-
-<section>
-  <h2>Commande Shein</h2>
-  <p>
-    +15% pour Meknès, +20% hors Meknès<br>
-    Livraison : 20-25 jours<br>
-    Paiement : 50% à la commande, 50% à la livraison<br>
-    <a href="https://www.shein.com/" target="_blank">Accéder à Shein</a>
-  </p>
+<!-- HERO -->
+<section class="hero-section">
+  <div class="container">
+    <img src="logo.JPG" alt="Logo Auto École Wallili" class="logo-img img-fluid" />
+    <h1 class="display-5">Bienvenue chez Groupe École Wallili</h1>
+    <p class="lead">Formation de qualité pour tous les types de permis à Meknès, Maroc.</p>
+  </div>
 </section>
 
-<section>
-  <h2>Primark</h2>
-  <img src="IMG_6434.JPG" class="product-img" alt="Primark">
-  <img src="IMG_6430.JPG" class="product-img" alt="Primark">
+<!-- TYPES DE PERMIS -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-4">Types de permis disponibles</h2>
+    <div class="row text-center">
+      <div class="col-md-4 mb-3">
+        <h5>Permis A</h5>
+        <p>Moto – Deux-roues de toutes cylindrées</p>
+      </div>
+      <div class="col-md-4 mb-3">
+        <h5>Permis B</h5>
+        <p>Voitures légères – le plus demandé</p>
+      </div>
+      <div class="col-md-4 mb-3">
+        <h5>Permis C & D</h5>
+        <p>Camions et véhicules de transport en commun</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section>
-  <h2>Rituals</h2>
-  <img src="IMG_6617.JPG" class="product-img" alt="Rituals">
-  <img src="IMG_6616.JPG" class="product-img" alt="Rituals">
-  <p>Disponibles en toutes tailles et toutes couleurs.</p>
+<!-- ARTICLES -->
+<section class="article-section bg-light">
+  <div class="container">
+    <h2 class="text-center mb-4">Nos articles</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="article">
+          <h3>Conseils pour réussir votre permis de conduire</h3>
+          <p>Découvrez nos astuces et conseils pour vous préparer efficacement à l'examen du permis de conduire.</p>
+          <a href="#" class="btn btn-primary">Lire la suite</a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="article">
+          <h3>Les avantages de choisir Auto École Wallili</h3>
+          <p>Apprenez pourquoi notre auto-école est le meilleur choix pour votre formation à la conduite.</p>
+          <a href="#" class="btn btn-primary">Lire la suite</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section>
-  <h2>Sephora</h2>
-  <img src="IMG_6433.JPG" class="product-img" alt="Sephora">
-  <img src="IMG_6431.JPG" class="product-img" alt="Sephora">
+<!-- COMMENT ÇA MARCHE -->
+<section class="py-5 bg-white text-center">
+  <div class="container">
+    <h2 class="fw-bold text-primary mb-3">Comment ça marche</h2>
+    <p class="lead">
+      L'apprentissage du permis <span class="text-primary fw-bold">transformé</span><br />
+      <strong class="text-primary">par Groupe École Wallili</strong>
+    </p>
+    <hr class="dotted-line my-4" />
+    <div class="row mt-5">
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="card h-100 shadow-sm">
+          <img src="as.jpg" class="card-img-top" alt="Code de la route" />
+          <div class="card-body">
+            <h5 class="fw-bold text-warning">1. Code de la route</h5>
+            <p>Apprenez les règles de circulation avec nos cours interactifs.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="card h-100 shadow-sm">
+          <img src="pic2.jpg" class="card-img-top" alt="Cours de conduite" />
+          <div class="card-body">
+            <h5 class="fw-bold text-warning">2. Cours de conduite</h5>
+            <p>Maîtrisez la pratique avec un encadrement professionnel.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="card h-100 shadow-sm">
+          <img src="IMG_5983.JPG" class="card-img-top" alt="Suivi personnalisé" />
+          <div class="card-body">
+            <h5 class="fw-bold text-warning">3. Suivi personnalisé</h5>
+            <p>Un accompagnement étape par étape pour garantir votre réussite.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="card h-100 shadow-sm">
+          <img src="IMG_5984.JPG" class="card-img-top" alt="Démarches et Examen" />
+          <div class="card-body">
+            <h5 class="fw-bold text-warning">4. Démarches & Examen</h5>
+            <p>Nous vous guidons dans les démarches jusqu'à l'examen final.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section>
-  <h2>Merci pour votre confiance</h2>
-  <video controls>
-    <source src="vid (1).MOV" type="video/mp4">
-    Votre navigateur ne supporte pas la vidéo.
-  </video>
+<!-- CONTACT -->
+<section class="py-5">
+  <div class="container text-center">
+    <h2 class="mb-4">Contactez-nous</h2>
+    <p>WhatsApp : <a href="https://wa.me/212638467805" target="_blank" rel="noopener noreferrer">+212 638 467805</a></p>
+    <a href="https://www.instagram.com/groupe_autoecole_walili?igsh=MW1qejh0aWl6dXBxMQ==" class="social-btn" target="_blank" rel="noopener noreferrer">Instagram</a>
+    <a href="https://www.tiktok.com/@auto_ecolewallili?_t=ZM-8vc2ViRVYQv&_r=1" class="social-btn" target="_blank" rel="noopener noreferrer">TikTok</a>
+    <p>Adresse : Meknès, Mansour, Chehdia, derrière BIM</p>
+    <p>Adresse : Zegotta centre, Sidi Kacem</p>
+    <p>Adresse : Khénichet, Sidi Kacem</p>
+    <p>Adresse : Jorf El Melha, Sidi Kacem</p>
+    <p>Nos téléphones :</p>
+    <ul>
+      <li><a href="tel:+212620091202">+212 620-091202</a></li>
+      <li><a href="tel:+212638467805">+212 638-467805</a></li>
+      <li><a href="tel:+212538714036">+212 538–714036</a></li>
+    </ul>
+    <p>Notre email : <a href="mailto:autoecole.walili@gmail.com">autoecole.walili@gmail.com</a></p>
+    <p>Heures d'ouverture :</p>
+    <ul>
+      <li>Lundi - Vendredi : 09:00 - 18:00</li>
+      <li>Samedi : 09:00 - 12:00</li>
+    </ul>
+  </div>
 </section>
 
-<section>
-  <h2>Contact</h2>
-  <a class="contact-btn" href="https://wa.me/212778231455" target="_blank">WhatsApp</a>
-  <a class="contact-btn" href="https://www.tiktok.com/@luxury_mar?_t=ZM-8vc1dEvvf0P&_r=1" target="_blank">TikTok</a>
-  <a class="contact-btn" href="https://www.instagram.com/luxury_product_maroc/?utm_source=qr" target="_blank">Instagram</a>
-  <img src="IMG_6427.jpg" alt="QR Code Instagram" class="qr-img">
+<!-- LOCALISATION -->
+<section class="py-5">
+  <div class="container text-center">
+    <h2 class="mb-4">Notre localisation</h2>
+    <div class="mt-4">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3257.697473854359!2d-5.5829062!3d33.863617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdc58362d2959827%3A0xb35f59b9a622998a!2sAuto%20Ecole%20Wallili!5e0!3m2!1sfr!2sma!4v1628178121658!5m2!1sfr!2sma"
+        loading="lazy" allowfullscreen></iframe>
+    </div>
+  </div>
 </section>
 
-<div class="bottom-bar">
-  ©️ 2025 Luxury Products Maroc.
-</div>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <p>&copy; 2025 Groupe Auto École Wallili - Meknès - Sidi Kacem - Zegotta.</p>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  setTimeout(() => {
+    const intro = document.getElementById('intro');
+    if (intro) intro.style.display = 'none';
+  }, 5000); // Cache l'intro après 5 secondes
+</script>
 
 </body>
 </html>
