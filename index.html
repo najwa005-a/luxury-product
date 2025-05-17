@@ -9,69 +9,106 @@
     body {
       margin: 0;
       font-family: 'Open Sans', sans-serif;
-      background-color: #fff;
+      background-color: #fdfdfd;
       color: #333;
       text-align: center;
     }
-    .bottom-bar {
-      background-color: #333; /* Couleur de fond de la barre de copyright */
-      color: white; /* Couleur du texte de la barre de copyright */
-      padding: 10px 0;
-      text-align: center;
-      font-size: 1em;
-    }
+
     .info-bar {
-      background-color: #d19c97; /* Votre couleur : rose poudré */
-      color: white; /* Couleur du texte de votre barre d'informations */
+      background-color: #d19c97;
+      color: white;
       padding: 15px 0;
-      text-align: center;
-      font-size: 1.1em; /* Légèrement plus grand pour l'info */
-      font-weight: bold; /* Mettre en gras si vous le souhaitez */
+      font-size: 1.1em;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
+
     header {
-      padding: 20px;
-      background-color: #f8ebf2;
+      padding: 30px 15px;
+      background: linear-gradient(145deg, #f8ebf2, #ffffff);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
+
     header img {
       width: 150px;
+      border-radius: 10px;
     }
+
     h1 {
       font-family: 'Playfair Display', serif;
       margin: 10px 0;
+      font-size: 2em;
     }
+
     section {
-      padding: 30px 15px;
-      border-bottom: 1px solid #f6f6f6;
+      padding: 40px 20px;
+      margin: 20px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
     }
+
+    section:hover {
+      transform: translateY(-5px);
+    }
+
     a {
       color: #da8da4;
       text-decoration: none;
+      transition: color 0.3s;
     }
+
+    a:hover {
+      color: #a6526a;
+    }
+
     .product-img, .qr-img {
       width: 200px;
-      margin: 10px auto;
+      margin: 15px auto;
       display: block;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
+
     .contact-btn {
       display: inline-block;
       margin: 10px;
-      padding: 10px 20px;
-      background-color: #d19c97;
+      padding: 12px 25px;
+      background: linear-gradient(to right, #d19c97, #e9b8b0);
       color: white;
-      border-radius: 5px;
+      font-weight: bold;
+      border-radius: 25px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transition: transform 0.2s ease, background 0.3s ease;
     }
+
+    .contact-btn:hover {
+      transform: translateY(-3px);
+      background: linear-gradient(to right, #c18782, #dca39d);
+    }
+
     video {
       width: 90%;
       max-width: 300px;
-      border-radius: 10px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+
+    .bottom-bar {
+      background-color: #333;
+      color: white;
+      padding: 12px 0;
+      text-align: center;
+      font-size: 0.95em;
+      margin-top: 30px;
     }
   </style>
 </head>
 <body>
 
 <div class="info-bar">
-  Livraison Partout au Maroc 
-  -Produits Authentiques de France
+  Livraison Partout au Maroc — Produits Authentiques de France
 </div>
 
 <header>
@@ -83,7 +120,6 @@
 <section>
   <h2>Commande Shein</h2>
   <p>
-</section>
     +15% pour Meknès, +20% hors Meknès<br>
     Livraison : 20-25 jours<br>
     Paiement : 50% à la commande, 50% à la livraison<br>
@@ -103,17 +139,15 @@
   <img src="IMG_6616.JPG" class="product-img" alt="Rituals">
   <p>Disponibles en toutes tailles et toutes couleurs.</p>
 </section>
-</section>
 
 <section>
   <h2>Sephora</h2>
   <img src="IMG_6433.JPG" class="product-img" alt="Sephora">
   <img src="IMG_6431.JPG" class="product-img" alt="Sephora">
-  </section>
+</section>
 
 <section>
   <h2>Merci pour votre confiance</h2>
-  
   <video controls>
     <source src="vid (1).MOV" type="video/mp4">
     Votre navigateur ne supporte pas la vidéo.
@@ -123,7 +157,7 @@
 <section>
   <h2>Contact</h2>
   <a class="contact-btn" href="https://wa.me/212778231455" target="_blank">WhatsApp</a>
-  <a href="https://www.tiktok.com/@luxury_mar?_t=ZM-8vc1dEvvf0P&_r=1" class="contact-btn" target="_blank">TikTok</a>
+  <a class="contact-btn" href="https://www.tiktok.com/@luxury_mar?_t=ZM-8vc1dEvvf0P&_r=1" target="_blank">TikTok</a>
   <a class="contact-btn" href="https://www.instagram.com/luxury_product_maroc/?utm_source=qr" target="_blank">Instagram</a>
   <img src="IMG_6427.jpg" alt="QR Code Instagram" class="qr-img">
 </section>
