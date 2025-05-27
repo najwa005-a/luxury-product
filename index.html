@@ -6,7 +6,10 @@
   <title>Luxury Product Maroc</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet">
   <style>
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: 'Open Sans', sans-serif;
@@ -16,6 +19,7 @@
       overflow-x: hidden;
     }
 
+    /* NAVIGATION FIXE */
     nav {
       position: fixed;
       top: 0;
@@ -37,22 +41,11 @@
       transition: color 0.3s ease;
     }
 
-    nav a:hover { color: #8e4d67; }
-
-    #lang-switch {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      background: #eac7d6;
-      border: none;
-      padding: 8px 15px;
-      border-radius: 20px;
-      font-weight: bold;
-      cursor: pointer;
-      color: #5a4a50;
-      z-index: 10001;
+    nav a:hover {
+      color: #8e4d67;
     }
 
+    /* INTRO */
     #intro {
       position: fixed;
       top: 0; left: 0;
@@ -134,6 +127,7 @@
       font-size: 1.1em;
       color: #777;
     }
+
     section {
       padding: 40px 20px;
       margin: 20px auto;
@@ -209,8 +203,130 @@
       margin-top: 30px;
     }
   </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    window.addEventListener("load", () => {
+      // Cacher l'intro après 3 sec
+      setTimeout(() => {
+        document.getElementById("intro").classList.add("hidden");
+      }, 3000);
+
+      // Particules
+      particlesJS("particles-js", {
+        particles: {
+          number: { value: 50, density: { enable: true, value_area: 800 } },
+          color: { value: "#d8a2b4" },
+          shape: { type: "circle" },
+          opacity: { value: 0.25 },
+          size: { value: 3 },
+          move: { enable: true, speed: 0.8 }
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: { enable: true, mode: "grab" },
+            onclick: { enable: true, mode: "push" }
+          },
+          modes: {
+            grab: { distance: 140, line_linked: { opacity: 0.3 } },
+            push: { particles_nb: 4 }
+          }
+        },
+        retina_detect: true
+      });
+
+      // Audio doux
+      const audio = new Audio("intro.mp3");
+      audio.volume = 0.3;
+      audio.play().catch(e => {
+        console.log("Audio bloqué jusqu'à interaction utilisateur.");
+      });
+    });
+  </script>
 </head>
 <body>
-  <h1 style="margin-top: 100px;">Code avec bouton de traduction</h1>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="#shein">Shein</a>
+  <a href="#primark">Primark</a>
+  <a href="#rituals">Rituals</a>
+  <a href="#sephora">Sephora</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- INTRO -->
+<div id="intro">
+  <h1>Luxury Products Maroc</h1>
+</div>
+
+<!-- INFO BAR -->
+<div class="info-bar">
+  Livraison express au Maroc · Produits importés de France
+</div>
+
+<!-- HEADER -->
+<header>
+  <div id="particles-js"></div>
+  <div class="header-container">
+    <img src="IMG_7666.PNG" alt="Logo Luxury Product">
+    <div class="header-text">
+      <h1>Luxury Product Maroc</h1>
+      <p>Le luxe français livré chez vous</p>
+    </div>
+  </div>
+</header>
+
+<!-- SECTIONS -->
+<section id="shein">
+  <h2>Commande Shein</h2>
+  <p>
+    +15% pour Meknès, +20% hors Meknès<br>
+    Livraison : 20-25 jours<br>
+    Paiement : 50% à la commande, 50% à la livraison<br>
+    <a href="https://www.shein.com/" target="_blank">Accéder à Shein</a>
+  </p>
+</section>
+
+<section id="primark">
+  <h2>Primark</h2>
+  <img src="IMG_6434.JPG" class="product-img" alt="Primark">
+  <img src="IMG_6430.JPG" class="product-img" alt="Primark">
+</section>
+
+<section id="rituals">
+  <h2>Rituals</h2>
+  <img src="IMG_6617.JPG" class="product-img" alt="Rituals">
+  <img src="IMG_6616.JPG" class="product-img" alt="Rituals">
+  <p>Disponibles en toutes tailles et toutes couleurs.</p>
+</section>
+
+<section id="sephora">
+  <h2>Sephora</h2>
+  <img src="IMG_6433.JPG" class="product-img" alt="Sephora">
+  <img src="IMG_6431.JPG" class="product-img" alt="Sephora">
+</section>
+
+<section>
+  <h2>Merci pour votre confiance</h2>
+  <video controls>
+    <source src="vid (1).MOV" type="video/mp4">
+    Votre navigateur ne supporte pas la vidéo.
+  </video>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <a class="contact-btn" href="https://wa.me/212778231455" target="_blank">WhatsApp</a>
+  <a class="contact-btn" href="https://www.tiktok.com/@luxury_mar?_t=ZM-8vc1dEvvf0P&_r=1" target="_blank">TikTok</a>
+  <a class="contact-btn" href="https://www.instagram.com/luxury_product_maroc/?utm_source=qr" target="_blank">Instagram</a>
+  <img src="IMG_6427.jpg" alt="QR Code Instagram" class="qr-img">
+</section>
+
+<div class="bottom-bar">
+  ©️ 2025 Luxury Products Maroc.
+</div>
+
 </body>
 </html>
