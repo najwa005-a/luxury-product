@@ -134,7 +134,6 @@
       font-size: 1.1em;
       color: #777;
     }
-
     section {
       padding: 40px 20px;
       margin: 20px auto;
@@ -212,93 +211,6 @@
   </style>
 </head>
 <body>
-  <!-- BOUTON DE LANGUE -->
-  <button id="lang-switch" onclick="switchLang()">Arabe</button>
-
-  <!-- NAVIGATION -->
-  <nav>
-    <a href="#shein" data-fr="Shein" data-ar="شي إن">Shein</a>
-    <a href="#primark" data-fr="Primark" data-ar="بريمارك">Primark</a>
-    <a href="#rituals" data-fr="Rituals" data-ar="ريتشوالز">Rituals</a>
-    <a href="#sephora" data-fr="Sephora" data-ar="سيفورا">Sephora</a>
-    <a href="#contact" data-fr="Contact" data-ar="اتصال">Contact</a>
-  </nav>
-
-  <!-- INTRO -->
-  <div id="intro"><h1>Luxury Products Maroc</h1></div>
-
-  <!-- INFO BAR -->
-  <div class="info-bar" id="infobar" data-fr="Livraison express au Maroc · Produits importés de France" data-ar="توصيل سريع في المغرب · منتجات مستوردة من فرنسا"></div>
-
-  <!-- HEADER -->
-  <header>
-    <div id="particles-js"></div>
-    <div class="header-container">
-      <img src="IMG_7666.PNG" alt="Logo Luxury Product">
-      <div class="header-text">
-        <h1>Luxury Product Maroc</h1>
-        <p id="slogan" data-fr="Le luxe français livré chez vous" data-ar="الرفاهية الفرنسية تصلك إلى باب بيتك"></p>
-      </div>
-    </div>
-  </header>
-
-  <!-- SECTIONS -->
-  <section id="shein">
-    <h2 data-fr="Commande Shein" data-ar="طلب من شي إن">Commande Shein</h2>
-    <p id="shein-desc" data-fr="+15% pour Meknès, +20% hors Meknès<br>Livraison : 20-25 jours<br>Paiement : 50% à la commande, 50% à la livraison" 
-       data-ar="+15% لمكناس، +20% خارج مكناس<br>التوصيل: من 20 إلى 25 يومًا<br>الدفع: 50% عند الطلب، 50% عند التسليم">
-    </p>
-    <a href="https://www.shein.com/" target="_blank">Shein</a>
-  </section>
-
-  <!-- ... (les autres sections à continuer si tu veux aussi en arabe) ... -->
-
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script>
-    const audio = new Audio("intro.mp3");
-    window.addEventListener("load", () => {
-      setTimeout(() => {
-        document.getElementById("intro").classList.add("hidden");
-      }, 3000);
-      audio.volume = 0.3;
-      audio.play().catch(() => {});
-      particlesJS("particles-js", {
-        particles: {
-          number: { value: 50, density: { enable: true, value_area: 800 } },
-          color: { value: "#d8a2b4" },
-          shape: { type: "circle" },
-          opacity: { value: 0.25 },
-          size: { value: 3 },
-          move: { enable: true, speed: 0.8 }
-        },
-        interactivity: {
-          detect_on: "canvas",
-          events: {
-            onhover: { enable: true, mode: "grab" },
-            onclick: { enable: true, mode: "push" }
-          },
-          modes: {
-            grab: { distance: 140, line_linked: { opacity: 0.3 } },
-            push: { particles_nb: 4 }
-          }
-        },
-        retina_detect: true
-      });
-    });
-
-    let currentLang = "fr";
-    function switchLang() {
-      currentLang = currentLang === "fr" ? "ar" : "fr";
-      document.getElementById("lang-switch").textContent = currentLang === "fr" ? "Arabe" : "Français";
-
-      document.querySelectorAll("[data-fr]").forEach(el => {
-        el.innerHTML = el.getAttribute("data-" + currentLang);
-      });
-
-      document.body.dir = currentLang === "ar" ? "rtl" : "ltr";
-    }
-  </script>
-
-  <div class="bottom-bar">©️ 2025 Luxury Products Maroc.</div>
+  <h1 style="margin-top: 100px;">Code avec bouton de traduction</h1>
 </body>
 </html>
