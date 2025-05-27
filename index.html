@@ -6,7 +6,10 @@
   <title>Luxury Product Maroc</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet">
   <style>
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: 'Open Sans', sans-serif;
@@ -14,9 +17,9 @@
       color: #333;
       text-align: center;
       overflow-x: hidden;
-      direction: ltr;
     }
 
+    /* NAVIGATION FIXE */
     nav {
       position: fixed;
       top: 0;
@@ -26,12 +29,11 @@
       z-index: 10000;
       display: flex;
       justify-content: center;
-      align-items: center;
       padding: 10px 0;
-      gap: 15px;
     }
 
     nav a {
+      margin: 0 15px;
       color: #b46885;
       font-weight: bold;
       text-decoration: none;
@@ -43,18 +45,7 @@
       color: #8e4d67;
     }
 
-    .lang-btn {
-      background: #b46885;
-      color: white;
-      border: none;
-      border-radius: 12px;
-      padding: 5px 15px;
-      cursor: pointer;
-      font-size: 0.9em;
-      margin-left: auto;
-      margin-right: 20px;
-    }
-
+    /* INTRO */
     #intro {
       position: fixed;
       top: 0; left: 0;
@@ -136,6 +127,7 @@
       font-size: 1.1em;
       color: #777;
     }
+
     section {
       padding: 40px 20px;
       margin: 20px auto;
@@ -211,7 +203,47 @@
       margin-top: 30px;
     }
   </style>
+
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    window.addEventListener("load", () => {
+      // Cacher l'intro après 3 sec
+      setTimeout(() => {
+        document.getElementById("intro").classList.add("hidden");
+      }, 3000);
+
+      // Particules
+      particlesJS("particles-js", {
+        particles: {
+          number: { value: 50, density: { enable: true, value_area: 800 } },
+          color: { value: "#d8a2b4" },
+          shape: { type: "circle" },
+          opacity: { value: 0.25 },
+          size: { value: 3 },
+          move: { enable: true, speed: 0.8 }
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: { enable: true, mode: "grab" },
+            onclick: { enable: true, mode: "push" }
+          },
+          modes: {
+            grab: { distance: 140, line_linked: { opacity: 0.3 } },
+            push: { particles_nb: 4 }
+          }
+        },
+        retina_detect: true
+      });
+
+      // Audio doux
+      const audio = new Audio("intro.mp3");
+      audio.volume = 0.3;
+      audio.play().catch(e => {
+        console.log("Audio bloqué jusqu'à interaction utilisateur.");
+      });
+    });
+  </script>
 </head>
 <body>
 
@@ -222,16 +254,15 @@
   <a href="#rituals">Rituals</a>
   <a href="#sephora">Sephora</a>
   <a href="#contact">Contact</a>
-  <button class="lang-btn" onclick="switchLang()">AR/FR</button>
 </nav>
 
 <!-- INTRO -->
 <div id="intro">
-  <h1 id="intro-title">Luxury Products Maroc</h1>
+  <h1>Luxury Products Maroc</h1>
 </div>
 
 <!-- INFO BAR -->
-<div class="info-bar" id="info-bar">
+<div class="info-bar">
   Livraison express au Maroc · Produits importés de France
 </div>
 
@@ -241,44 +272,44 @@
   <div class="header-container">
     <img src="IMG_7666.PNG" alt="Logo Luxury Product">
     <div class="header-text">
-      <h1 id="main-title">Luxury Product Maroc</h1>
-      <p id="slogan">Le luxe français livré chez vous</p>
+      <h1>Luxury Product Maroc</h1>
+      <p>Le luxe français livré chez vous</p>
     </div>
   </div>
 </header>
 
 <!-- SECTIONS -->
 <section id="shein">
-  <h2 id="shein-title">Commande Shein</h2>
-  <p id="shein-desc">
+  <h2>Commande Shein</h2>
+  <p>
     +15% pour Meknès, +20% hors Meknès<br>
     Livraison : 20-25 jours<br>
-    Paiement : 50% à la commande, 50% à la livraison
+    Paiement : 50% à la commande, 50% à la livraison<br>
+    <a href="https://www.shein.com/" target="_blank">Accéder à Shein</a>
   </p>
-  <a href="https://www.shein.com/" target="_blank">Accéder à Shein</a>
 </section>
 
 <section id="primark">
-  <h2 id="primark-title">Primark</h2>
+  <h2>Primark</h2>
   <img src="IMG_6434.JPG" class="product-img" alt="Primark">
   <img src="IMG_6430.JPG" class="product-img" alt="Primark">
 </section>
 
 <section id="rituals">
-  <h2 id="rituals-title">Rituals</h2>
+  <h2>Rituals</h2>
   <img src="IMG_6617.JPG" class="product-img" alt="Rituals">
   <img src="IMG_6616.JPG" class="product-img" alt="Rituals">
-  <p id="rituals-desc">Disponibles en toutes tailles et toutes couleurs.</p>
+  <p>Disponibles en toutes tailles et toutes couleurs.</p>
 </section>
 
 <section id="sephora">
-  <h2 id="sephora-title">Sephora</h2>
+  <h2>Sephora</h2>
   <img src="IMG_6433.JPG" class="product-img" alt="Sephora">
   <img src="IMG_6431.JPG" class="product-img" alt="Sephora">
 </section>
 
 <section>
-  <h2 id="merci">Merci pour votre confiance</h2>
+  <h2>Merci pour votre confiance</h2>
   <video controls>
     <source src="vid (1).MOV" type="video/mp4">
     Votre navigateur ne supporte pas la vidéo.
@@ -286,7 +317,7 @@
 </section>
 
 <section id="contact">
-  <h2 id="contact-title">Contact</h2>
+  <h2>Contact</h2>
   <a class="contact-btn" href="https://wa.me/212778231455" target="_blank">WhatsApp</a>
   <a class="contact-btn" href="https://www.tiktok.com/@luxury_mar?_t=ZM-8vc1dEvvf0P&_r=1" target="_blank">TikTok</a>
   <a class="contact-btn" href="https://www.instagram.com/luxury_product_maroc/?utm_source=qr" target="_blank">Instagram</a>
@@ -296,3 +327,6 @@
 <div class="bottom-bar">
   ©️ 2025 Luxury Products Maroc.
 </div>
+
+</body>
+</html>
