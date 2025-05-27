@@ -14,6 +14,7 @@
       color: #333;
       text-align: center;
       overflow-x: hidden;
+      direction: ltr;
     }
 
     nav {
@@ -135,7 +136,6 @@
       font-size: 1.1em;
       color: #777;
     }
-
     section {
       padding: 40px 20px;
       margin: 20px auto;
@@ -211,7 +211,6 @@
       margin-top: 30px;
     }
   </style>
-
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
@@ -228,11 +227,13 @@
 
 <!-- INTRO -->
 <div id="intro">
-  <h1>Luxury Products Maroc</h1>
+  <h1 id="intro-title">Luxury Products Maroc</h1>
 </div>
 
 <!-- INFO BAR -->
-<div class="info-bar">Livraison express au Maroc · Produits importés de France</div>
+<div class="info-bar" id="info-bar">
+  Livraison express au Maroc · Produits importés de France
+</div>
 
 <!-- HEADER -->
 <header>
@@ -240,44 +241,44 @@
   <div class="header-container">
     <img src="IMG_7666.PNG" alt="Logo Luxury Product">
     <div class="header-text">
-      <h1>Luxury Product Maroc</h1>
-      <p>Le luxe français livré chez vous</p>
+      <h1 id="main-title">Luxury Product Maroc</h1>
+      <p id="slogan">Le luxe français livré chez vous</p>
     </div>
   </div>
 </header>
 
 <!-- SECTIONS -->
 <section id="shein">
-  <h2>Commande Shein</h2>
-  <p>
+  <h2 id="shein-title">Commande Shein</h2>
+  <p id="shein-desc">
     +15% pour Meknès, +20% hors Meknès<br>
     Livraison : 20-25 jours<br>
-    Paiement : 50% à la commande, 50% à la livraison<br>
-    <a href="https://www.shein.com/" target="_blank">Accéder à Shein</a>
+    Paiement : 50% à la commande, 50% à la livraison
   </p>
+  <a href="https://www.shein.com/" target="_blank">Accéder à Shein</a>
 </section>
 
 <section id="primark">
-  <h2>Primark</h2>
+  <h2 id="primark-title">Primark</h2>
   <img src="IMG_6434.JPG" class="product-img" alt="Primark">
   <img src="IMG_6430.JPG" class="product-img" alt="Primark">
 </section>
 
 <section id="rituals">
-  <h2>Rituals</h2>
+  <h2 id="rituals-title">Rituals</h2>
   <img src="IMG_6617.JPG" class="product-img" alt="Rituals">
   <img src="IMG_6616.JPG" class="product-img" alt="Rituals">
-  <p>Disponibles en toutes tailles et toutes couleurs.</p>
+  <p id="rituals-desc">Disponibles en toutes tailles et toutes couleurs.</p>
 </section>
 
 <section id="sephora">
-  <h2>Sephora</h2>
+  <h2 id="sephora-title">Sephora</h2>
   <img src="IMG_6433.JPG" class="product-img" alt="Sephora">
   <img src="IMG_6431.JPG" class="product-img" alt="Sephora">
 </section>
 
 <section>
-  <h2>Merci pour votre confiance</h2>
+  <h2 id="merci">Merci pour votre confiance</h2>
   <video controls>
     <source src="vid (1).MOV" type="video/mp4">
     Votre navigateur ne supporte pas la vidéo.
@@ -285,98 +286,13 @@
 </section>
 
 <section id="contact">
-  <h2>Contact</h2>
+  <h2 id="contact-title">Contact</h2>
   <a class="contact-btn" href="https://wa.me/212778231455" target="_blank">WhatsApp</a>
   <a class="contact-btn" href="https://www.tiktok.com/@luxury_mar?_t=ZM-8vc1dEvvf0P&_r=1" target="_blank">TikTok</a>
   <a class="contact-btn" href="https://www.instagram.com/luxury_product_maroc/?utm_source=qr" target="_blank">Instagram</a>
   <img src="IMG_6427.jpg" alt="QR Code Instagram" class="qr-img">
 </section>
 
-<div class="bottom-bar">©️ 2025 Luxury Products Maroc.</div>
-
-<!-- SCRIPT DE TRADUCTION -->
-<script>
-  const translations = {
-    "fr": {
-      "intro": "Luxury Products Maroc",
-      "info-bar": "Livraison express au Maroc · Produits importés de France",
-      "shein": "Commande Shein",
-      "primark": "Primark",
-      "rituals": "Rituals",
-      "sephora": "Sephora",
-      "merci": "Merci pour votre confiance",
-      "contact": "Contact",
-      "slogan": "Le luxe français livré chez vous"
-    },
-    "ar": {
-      "intro": "منتجات فاخرة المغرب",
-      "info-bar": "توصيل سريع إلى المغرب · منتجات مستوردة من فرنسا",
-      "shein": "طلب شي إن",
-      "primark": "برايمارك",
-      "rituals": "ريتوالز",
-      "sephora": "سيفورا",
-      "merci": "شكراً على ثقتكم",
-      "contact": "اتصال",
-      "slogan": "الرفاهية الفرنسية تصلك إلى منزلك"
-    }
-  };
-
-  function switchLang() {
-    const lang = document.documentElement.lang === "fr" ? "ar" : "fr";
-    document.documentElement.lang = lang;
-    document.body.dir = (lang === "ar") ? "rtl" : "ltr";
-
-    const map = {
-      "#intro h1": "intro",
-      ".info-bar": "info-bar",
-      "#shein h2": "shein",
-      "#primark h2": "primark",
-      "#rituals h2": "rituals",
-      "#sephora h2": "sephora",
-      "section:nth-of-type(5) h2": "merci",
-      "#contact h2": "contact",
-      ".header-text p": "slogan"
-    };
-
-    for (const selector in map) {
-      const el = document.querySelector(selector);
-      if (el) el.innerHTML = translations[lang][map[selector]];
-    }
-  }
-
-  window.addEventListener("load", () => {
-    setTimeout(() => {
-      document.getElementById("intro").classList.add("hidden");
-    }, 3000);
-
-    particlesJS("particles-js", {
-      particles: {
-        number: { value: 50, density: { enable: true, value_area: 800 } },
-        color: { value: "#d8a2b4" },
-        shape: { type: "circle" },
-        opacity: { value: 0.25 },
-        size: { value: 3 },
-        move: { enable: true, speed: 0.8 }
-      },
-      interactivity: {
-        detect_on: "canvas",
-        events: {
-          onhover: { enable: true, mode: "grab" },
-          onclick: { enable: true, mode: "push" }
-        },
-        modes: {
-          grab: { distance: 140, line_linked: { opacity: 0.3 } },
-          push: { particles_nb: 4 }
-        }
-      },
-      retina_detect: true
-    });
-
-    const audio = new Audio("intro.mp3");
-    audio.volume = 0.3;
-    audio.play().catch(() => {});
-  });
-</script>
-
-</body>
-</html>
+<div class="bottom-bar">
+  ©️ 2025 Luxury Products Maroc.
+</div>
